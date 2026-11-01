@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #09090b;
+    color: #f4f4f5;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Violent shake animation for wrong choice */
+@keyframes violentShake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  12% { transform: translate(-14px, 0) rotate(-3.5deg); }
+  25% { transform: translate(14px, 0) rotate(3.5deg); }
+  37% { transform: translate(-10px, 0) rotate(-2deg); }
+  50% { transform: translate(10px, 0) rotate(2deg); }
+  62% { transform: translate(-6px, 0) rotate(-1deg); }
+  75% { transform: translate(6px, 0) rotate(1deg); }
+  87% { transform: translate(-2px, 0) rotate(-0.5deg); }
+}
+
+.animate-violent-shake {
+  animation: violentShake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes dropSlice {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(600px) rotate(var(--rot, 8deg)) scale(0.9);
+    opacity: 0;
+  }
+}
+
+.animate-shred-slice {
+  animation: dropSlice 0.9s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+}
+
+@keyframes laserSweep {
+  0% {
+    top: 0%;
+    opacity: 1;
+  }
+  95% {
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-laser {
+  animation: laserSweep 0.85s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px -3px rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px 2px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
